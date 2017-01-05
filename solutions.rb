@@ -155,7 +155,6 @@ def task74 arr
   hsh = arr.each_with_object(Hash.new 0) do |num, counter|
     counter[num] += 1
   end
-  hsh
   hsh.each do |key, val|
   	if val == 3
   		arr.delete(key)
@@ -172,9 +171,7 @@ end
 # 82 Дано число А и натуральное число N. Найти результат следующего выражения 1 + А + А*2 + А*3 + … + А*N.
 def task82 n, a
   sum = 1
-  n.times do |i|
-    sum = sum + a * i
-  end
+  (n+1).times {|i| sum = sum + a * i}
   sum
 end
 
