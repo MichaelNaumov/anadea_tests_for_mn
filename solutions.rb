@@ -3,6 +3,7 @@ arr = (0..30).to_a
 arr << 33 << 45 << -1 << 46 << -5 << 46 << 43 << 41 << 46 << 0
 arr2 = 30.times.map{ Random.rand(-10.99..10.99) }
 arr3 = ['w', 'wo', 'word', 'wor', 'lofsas']
+hsh = {"Василий" => "Иванов", "Петр" => "Александров", "Андрей" => "Иванов"}
 
 # 2 Дан целочисленный массив. Необходимо вывести вначале его элементы с нечетными индексами, а затем - четными.
 def task2 arr
@@ -61,7 +62,7 @@ end
 #26 Дан целочисленный массив. Преобразовать его, вставив перед каждым отрицательным элементом нулевой элемент.
 def task26 arr
   elem = arr[0]
-  array = arr.map! do |i| 
+  array = arr.map! do |i|
   	if i < 0
   		arr.insert([elem,i])
   	else
@@ -87,7 +88,7 @@ end
 
 # 42 Дан целочисленный массив. Найти минимальный нечетный элемент.
 def task42 arr
-  arr.select {|i| i.odd?}.sort[0]	
+  arr.select {|i| i.odd?}.sort[0]
 end
 
 # 46 Дан целочисленный массив. Найти максимальный отрицательный элемент.
@@ -106,7 +107,7 @@ end
 def task50 arr
 	count = 0
 	arr[0..arr.index(arr.max)].each_index do |i|
-		count = count + 1 
+		count = count + 1
 	end
 	count
 end
@@ -115,7 +116,7 @@ end
 def task54 arr
 	count = 0
 	arr[0..arr.rindex(arr.min)].each_index do |i|
-		count = count + 1 
+		count = count + 1
 	end
 	count
 end
@@ -237,9 +238,9 @@ end
 def task110 arr
 	arr.each_index do |i|
 		tmp = arr.max
-		if arr[i] == arr.max 
-			arr[i] = arr.min 
-		elsif arr[i] == arr.min 
+		if arr[i] == arr.max
+			arr[i] = arr.min
+		elsif arr[i] == arr.min
 			arr[i] = tmp
 		end
 	end
@@ -306,12 +307,9 @@ def custom_flatten arr
 end
 
 # 5 hash merge, группировка(дан массив имен-фамилий, написать алгоритм поиска однофамильцев)
-hsh = {"Василий" => "Иванов", "Петр" => "Александров", "Андрей" => "Иванов"}
-count = 0
-hsh.each_value do |val|
-  	if hsh.has_value? val
-
-  	end
+def grouped_surnames hsh
+  hsh.invert
+  h2 = hsh.group_by{|k,v| v}
 end
 
-# print custom_flatten(arr) {|i| i != 0}
+print grouped_surnames hsh
