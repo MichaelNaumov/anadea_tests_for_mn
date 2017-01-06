@@ -14,7 +14,7 @@ end
 
 # 6 Дан целочисленный массив. Преобразовать его, прибавив к четным числам последний элемент. Первый и последний элементы массива не изменять.
 def task6 arr
-  arr[1...arr.length-1].map! {|i| i.odd? ? i += arr.last : i}.insert(0, arr.first) << arr.last
+  arr[1...arr.length-2].map {|i| i.odd? ? i += arr.last : i}.insert(0, arr.first) << arr.last
 end
 
 # 10 Дан целочисленный массив. Заменить все положительные элементы на значение максимального.
@@ -25,7 +25,7 @@ def task10 arr
   	  max = arr[i]
   	end
   end
-  arr.map! {|i| i > 0 ? i = max : i}
+  arr.map {|i| i > 0 ? i = max : i}
 end
 
 # 14 Дан целочисленный массив. Осуществить циклический сдвиг элементов массива вправо на одну позицию.
@@ -196,7 +196,6 @@ def task94 arr, k
   arr.each do |i|
     if i < k
       return false
-      break
     end
   end
   return true
@@ -309,4 +308,5 @@ def grouped_surnames hsh
   h2 = hsh.group_by{|k,v| v}
 end
 
-print grouped_surnames hsh
+#print grouped_surnames hsh
+print task94 arr, -20
