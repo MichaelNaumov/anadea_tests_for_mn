@@ -1,6 +1,6 @@
 
 arr = (0..30).to_a
-arr << 33 << 45 << -1 << 46 << -5 << 46 << 43 << 41 << 46 << 0
+arr << 33 << 45 << -1 << 46 << -5 << 46 << 43 << 41 << 46 << 1
 arr2 = 30.times.map{ Random.rand(-10.99..10.99) }
 arr3 = ['w', 'wo', 'word', 'wor', 'lofsas']
 hsh = {"Василий" => "Иванов", "Петр" => "Александров", "Андрей" => "Иванов"}
@@ -14,7 +14,7 @@ end
 
 # 6 Дан целочисленный массив. Преобразовать его, прибавив к четным числам последний элемент. Первый и последний элементы массива не изменять.
 def task6 arr
-  arr[1...arr.length-2].map {|i| i.odd? ? i += arr.last : i}.insert(0, arr.first) << arr.last
+  arr[1...arr.length-1].map {|i| i.odd? ? i += arr.last : i}.insert(0, arr.first) << arr.last
 end
 
 # 10 Дан целочисленный массив. Заменить все положительные элементы на значение максимального.
@@ -309,4 +309,4 @@ def grouped_surnames hsh
 end
 
 #print grouped_surnames hsh
-print task94 arr, -20
+print task6 arr
