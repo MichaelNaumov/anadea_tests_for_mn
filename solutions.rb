@@ -93,7 +93,7 @@ end
 
 # 46 Дан целочисленный массив. Найти максимальный отрицательный элемент.
 def task46 arr
-  new_arr = arr.select! {|i| i if i < 0}
+  new_arr = arr.select {|i| i < 0}
   max = new_arr.first
   new_arr.each do |i|
     if i > max
@@ -244,8 +244,8 @@ end
 
 # 1 Сортировка массива: чет/нечет, обратный порядок, массив строк упорядочить по длине слов (группировка по длине слов)
 def odd_even_sort arr
-	odds = arr.select {|i| i if i.odd?}.sort
-	evens = arr.select {|i| i if i.even?}.sort
+	odds = arr.select {|i| i.odd?}.sort
+	evens = arr.select {|i| i.even?}.sort
 	resulting = odds + evens
 end
 
@@ -309,4 +309,4 @@ def grouped_surnames hsh
 end
 
 #print grouped_surnames hsh
-print task6 arr
+print odd_even_sort arr
